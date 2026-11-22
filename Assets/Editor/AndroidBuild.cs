@@ -10,7 +10,7 @@ namespace RealDrive.Editor
         public static void BuildAPK()
         {
             // Final Stage: PC par Unity Editor se APK banane ka one-click tareeqa
-            PlayerSettings.bundleIdentifier = "com.jolet.realdrive";
+            PlayerSettings.applicationIdentifier = "com.jolet.realdrive";
             PlayerSettings.bundleVersion = "1.0.0";
             PlayerSettings.Android.bundleVersionCode = 1;
             PlayerSettings.defaultInterfaceOrientation = UIOrientation.LandscapeLeft;
