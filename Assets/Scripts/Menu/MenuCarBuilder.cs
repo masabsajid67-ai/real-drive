@@ -9,8 +9,8 @@ namespace RealDrive.Menu
         {
             GameObject car = new GameObject("ShowroomCar");
             car.transform.position = pos;
-            Material bodyMat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
-            if (bodyMat.shader == null) bodyMat = new Material(Shader.Find("Standard"));
+            Material bodyMat = new Material(Shader.Find("Standard"));
+            if (bodyMat.shader == null) bodyMat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
             bodyMat.color = bodyColor; bodyMat.SetFloat("_Smoothness", 0.85f); bodyMat.SetFloat("_Metallic", 0.6f);
             Material darkMat = new Material(bodyMat.shader); darkMat.color = new Color(0.08f, 0.08f, 0.1f);
             Material glassMat = new Material(bodyMat.shader); glassMat.color = new Color(0.1f, 0.2f, 0.3f, 0.9f); glassMat.SetFloat("_Smoothness", 1f); glassMat.SetFloat("_Metallic", 0.9f);
@@ -84,8 +84,8 @@ namespace RealDrive.Menu
             GameObject floor = GameObject.CreatePrimitive(PrimitiveType.Plane);
             floor.name = "ShowroomFloor"; floor.transform.position = pos; floor.transform.localScale = new Vector3(4, 1, 4);
             var r = floor.GetComponent<Renderer>();
-            Shader s = Shader.Find("Universal Render Pipeline/Lit");
-            if (s == null) s = Shader.Find("Standard");
+            Shader s = Shader.Find("Standard");
+            if (s == null) s = Shader.Find("Universal Render Pipeline/Lit");
             Material m = new Material(s);
             m.color = new Color(0.07f, 0.08f, 0.1f); r.material = m;
         }

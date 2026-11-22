@@ -8,8 +8,8 @@ namespace RealDrive.Player
             GameObject p = new GameObject("PlayerOnFoot");
             p.transform.position = pos;
             p.tag = "Player";
-            Shader ps = Shader.Find("Universal Render Pipeline/Lit");
-            if (ps == null) ps = Shader.Find("Standard");
+            Shader ps = Shader.Find("Standard");
+            if (ps == null) ps = Shader.Find("Universal Render Pipeline/Lit");
             Material shirt = new Material(ps);
             shirt.color = new Color(0.1f, 0.6f, 0.9f);
             Material skin = new Material(shirt.shader); skin.color = new Color(0.85f, 0.65f, 0.5f);

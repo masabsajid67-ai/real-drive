@@ -10,8 +10,8 @@ namespace RealDrive.World
 
         static void InitMaterials()
         {
-            Shader s = Shader.Find("Universal Render Pipeline/Lit");
-            if (s == null) s = Shader.Find("Standard");
+            Shader s = Shader.Find("Standard");
+            if (s == null) s = Shader.Find("Universal Render Pipeline/Lit");
             asphalt = Mat(s, new Color(0.12f, 0.12f, 0.14f));
             concrete = Mat(s, new Color(0.55f, 0.55f, 0.58f));
             grass = Mat(s, new Color(0.25f, 0.5f, 0.25f));
@@ -218,7 +218,7 @@ namespace RealDrive.World
                 float x = 75f + (i % 4) * 30f;
                 float z = 75f + (i / 4) * 35f;
                 // shop box - material seedha banao taake shader null na ho
-                Shader ss = Shader.Find("Universal Render Pipeline/Lit"); if (ss == null) ss = Shader.Find("Standard");
+                Shader ss = Shader.Find("Standard"); if (ss == null) ss = Shader.Find("Universal Render Pipeline/Lit");
                 Material mm = new Material(ss); mm.color = shopCols[i % 4];
                 Box("Shop_" + i, new Vector3(x, 2.5f, z), new Vector3(18, 5, 12), mm);
                 // sign board

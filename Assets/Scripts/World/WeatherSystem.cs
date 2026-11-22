@@ -22,8 +22,8 @@ namespace RealDrive.World
             var em = rain.emission; em.rateOverTime = 800f;
             var shape = rain.shape; shape.shapeType = ParticleSystemShapeType.Box; shape.scale = new Vector3(40, 1, 40);
             var rend = go.GetComponent<ParticleSystemRenderer>();
-            Shader rs = Shader.Find("Universal Render Pipeline/Lit");
-            if (rs == null) rs = Shader.Find("Standard");
+            Shader rs = Shader.Find("Standard");
+            if (rs == null) rs = Shader.Find("Universal Render Pipeline/Lit");
             rend.material = new Material(rs);
             rain.Stop();
         }
