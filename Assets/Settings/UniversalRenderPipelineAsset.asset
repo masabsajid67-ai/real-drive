@@ -55,6 +55,6 @@ MonoBehaviour:
   m_ReflectionProbeBoxProjection: 0
   m_RendererType: 0
   m_RendererDataList:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 8e37ef519e56498185cad4245475487f, type: 2}
   m_DefaultRendererIndex: 0
   m_ProbeVolumeEnabled: 0
