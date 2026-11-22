@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!129 &1
+PlayerSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 25
+  productGUID: a1b2c3d4e5f64789a1b2c3d4e5f64789
+  AndroidBundleVersionCode: 1
+  AndroidMinSdkVersion: 24
+  AndroidTargetSdkVersion: 0
+  AndroidPreferredInstallLocation: 1
+  aotOptions:
+  m_BuildTargetIcons: []
+  m_BuildTargetBatching: []
+  m_BuildTargetGraphicsAPIs: []
+  m_BuildTargetSupported: []
+  m_BuildTargetVRSettings: []
+  productName: REAL DRIVE
+  companyName: jolet
+  productGUID: a1b2c3d4e5f64789a1b2c3d4e5f64789
+  defaultScreenWidth: 1920
+  defaultScreenHeight: 1080
+  defaultScreenWidthWeb: 960
+  defaultScreenHeightWeb: 600
+  m_ScreenOrientation: 4
+  m_TargetDevice: 2
+  m_UseOSAutorotation: 0
+  m_AllowedAutorotateToPortrait: 0
+  m_AllowedAutorotateToPortraitUpsideDown: 0
+  m_AllowedAutorotateToLandscapeRight: 1
+  m_AllowedAutorotateToLandscapeLeft: 1
+  m_Use32BitDisplayBuffer: 1
+  m_DisableDepthAndStencilBuffers: 0
+  m_AndroidSplashScreenScale: 0
+  m_AndroidSplashScreen: {fileID: 0}
+  bundleIdentifier: com.jolet.realdrive
+  bundleVersion: 1.0.0
+  preloadedAssets: []
+  m_TemplateCustomTags: {}
+  m_BuildTargetGroup: 0
+  m_HardwareStats: 0
+  m_StripEngineCode: 1
+  m_ManagedStrippingLevel: 0
+  m_ScriptingBackend: 1
+  m_ApiCompatibilityLevel: 2
+  m_ActiveColorSpace: 1
+  m_MTRendering: 1
+  m_UsePlayerLog: 1
+  m_ResizableWindow: 0
+  m_UseMacAppStoreValidation: 0
+  m_XboxOneResolution: 0
+  m_XboxOneScreenshots: 0
+  m_XboxOneContent: 0
+  m_PS4NPTitleID: 0
+  m_SupportedAspectRatios:
+    m_AspectRatio_4_3: 1
+    m_AspectRatio_5_4: 1
+    m_AspectRatio_16_10: 1
+    m_AspectRatio_16_9: 1
+    m_AspectRatio_Others: 1
