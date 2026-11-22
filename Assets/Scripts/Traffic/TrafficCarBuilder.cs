@@ -12,6 +12,7 @@ namespace RealDrive.Traffic
             car.tag = "Traffic";
             Shader s = Shader.Find("Standard");
             if (s == null) s = Shader.Find("Universal Render Pipeline/Lit");
+            if (s == null) s = Shader.Find("Unlit/Color");
             Material body = new Material(s); body.color = col; body.SetFloat("_Smoothness", 0.7f); body.SetFloat("_Metallic", 0.4f);
             Material dark = new Material(s); dark.color = new Color(0.08f, 0.08f, 0.1f);
             Material glass = new Material(s); glass.color = new Color(0.15f, 0.25f, 0.35f);

@@ -12,6 +12,7 @@ namespace RealDrive.World
         {
             Shader s = Shader.Find("Standard");
             if (s == null) s = Shader.Find("Universal Render Pipeline/Lit");
+            if (s == null) s = Shader.Find("Unlit/Color");
             asphalt = Mat(s, new Color(0.12f, 0.12f, 0.14f));
             concrete = Mat(s, new Color(0.55f, 0.55f, 0.58f));
             grass = Mat(s, new Color(0.25f, 0.5f, 0.25f));
@@ -28,6 +29,7 @@ namespace RealDrive.World
         }
         static Material Mat(Shader s, Color c, float metallic = 0f, float smooth = 0.5f)
         {
+            if (s == null) return null;
             Material m = new Material(s);
             m.color = c; m.SetFloat("_Metallic", metallic); m.SetFloat("_Smoothness", smooth);
             return m;
@@ -39,7 +41,7 @@ namespace RealDrive.World
             go.transform.SetParent(cityRoot, false);
             go.transform.position = pos;
             go.transform.localScale = scale;
-            go.GetComponent<Renderer>().material = mat;
+            if (mat != null) go.GetComponent<Renderer>().material = mat;
             go.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
             if (!collider) Object.Destroy(go.GetComponent<BoxCollider>());
             return go;
@@ -130,7 +132,7 @@ namespace RealDrive.World
             GameObject ground = GameObject.CreatePrimitive(PrimitiveType.Plane);
             ground.name = "CityGround"; ground.transform.SetParent(cityRoot, false);
             ground.transform.localScale = new Vector3(45, 1, 45);
-            ground.GetComponent<Renderer>().material = grass;
+            if (grass != null) ground.GetComponent<Renderer>().material = grass;
             // Grid roads: har 60 m par, -180 se 180 tak
             for (int i = -3; i <= 3; i++)
             {
@@ -218,7 +220,7 @@ namespace RealDrive.World
                 float x = 75f + (i % 4) * 30f;
                 float z = 75f + (i / 4) * 35f;
                 // shop box - material seedha banao taake shader null na ho
-                Shader ss = Shader.Find("Standard"); if (ss == null) ss = Shader.Find("Universal Render Pipeline/Lit");
+                Shader ss = Shader.Find("Standard"); if (ss == null) ss = Shader.Find("Universal Render Pipeline/Lit"); if (ss == null) ss = Shader.Find("Unlit/Color");
                 Material mm = new Material(ss); mm.color = shopCols[i % 4];
                 Box("Shop_" + i, new Vector3(x, 2.5f, z), new Vector3(18, 5, 12), mm);
                 // sign board

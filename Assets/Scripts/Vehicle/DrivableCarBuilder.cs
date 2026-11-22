@@ -13,6 +13,7 @@ namespace RealDrive.Vehicle
             // Body visual - MenuCarBuilder jaisa, lekin wheels alag se taake WheelCollider se sync hon
             Material bodyMat = new Material(Shader.Find("Standard"));
             if (bodyMat.shader == null) bodyMat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+            if (bodyMat.shader == null) bodyMat = new Material(Shader.Find("Unlit/Color"));
             bodyMat.color = bodyColor;
             Customization.ApplyFinish(bodyMat, SaveManager.PaintFinish);
             Material darkMat = new Material(bodyMat.shader); darkMat.color = new Color(0.08f, 0.08f, 0.1f);
