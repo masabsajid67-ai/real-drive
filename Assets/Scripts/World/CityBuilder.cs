@@ -7,7 +7,6 @@ namespace RealDrive.World
     {
         static Material asphalt, concrete, grass, glass, glass2, houseMat, shopMat, white, yellow, red, treeTrunk, treeLeaf, lampMat;
         static Transform cityRoot;
-        static int seedCounter;
 
         static void InitMaterials()
         {
@@ -125,7 +124,6 @@ namespace RealDrive.World
         public static void BuildCity()
         {
             InitMaterials();
-            seedCounter = 0;
             GameObject root = new GameObject("City");
             cityRoot = root.transform;
             // Ground - bada grass base
