@@ -14,20 +14,26 @@ namespace RealDrive.Vehicle
             Material bodyMat = new Material(Shader.Find("Standard"));
             if (bodyMat.shader == null) bodyMat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
             if (bodyMat.shader == null) bodyMat = new Material(Shader.Find("Unlit/Color"));
-            bodyMat.color = bodyColor;
-            Customization.ApplyFinish(bodyMat, SaveManager.PaintFinish);
-            Material darkMat = new Material(bodyMat.shader); darkMat.color = new Color(0.08f, 0.08f, 0.1f);
-            Material glassMat = new Material(bodyMat.shader); glassMat.color = new Color(0.1f, 0.2f, 0.3f); glassMat.SetFloat("_Smoothness", 1f); glassMat.SetFloat("_Metallic", 0.9f);
-            Material tyreMat = new Material(bodyMat.shader); tyreMat.color = Color.black;
+            // Build 11: shader null ho to koi null-shader material assign na ho (pink se bacho).
+            bool hasShader = bodyMat.shader != null;
+            Material darkMat = null, glassMat = null, tyreMat = null;
+            if (hasShader)
+            {
+                bodyMat.color = bodyColor;
+                Customization.ApplyFinish(bodyMat, SaveManager.PaintFinish);
+                darkMat = new Material(bodyMat.shader); darkMat.color = new Color(0.08f, 0.08f, 0.1f);
+                glassMat = new Material(bodyMat.shader); glassMat.color = new Color(0.1f, 0.2f, 0.3f); glassMat.SetFloat("_Smoothness", 1f); glassMat.SetFloat("_Metallic", 0.9f);
+                tyreMat = new Material(bodyMat.shader); tyreMat.color = Color.black;
+            }
 
             GameObject body = GameObject.CreatePrimitive(PrimitiveType.Cube);
             body.name = "Body"; body.transform.SetParent(car.transform, false);
             body.transform.localPosition = new Vector3(0, 0.55f, 0); body.transform.localScale = new Vector3(1.9f, 0.45f, 4.4f);
-            body.GetComponent<Renderer>().material = bodyMat;
+            if (hasShader) body.GetComponent<Renderer>().material = bodyMat;
             GameObject cabin = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cabin.name = "Cabin"; cabin.transform.SetParent(car.transform, false);
             cabin.transform.localPosition = new Vector3(0, 0.95f, -0.3f); cabin.transform.localScale = new Vector3(1.6f, 0.45f, 2.2f);
-            cabin.GetComponent<Renderer>().material = glassMat;
+            if (hasShader) cabin.GetComponent<Renderer>().material = glassMat;
             GameObject spoiler = GameObject.CreatePrimitive(PrimitiveType.Cube);
             spoiler.name = "Spoiler"; spoiler.transform.SetParent(car.transform, false);
             spoiler.transform.localPosition = new Vector3(0, 1.05f, -2.1f);
@@ -35,15 +41,18 @@ namespace RealDrive.Vehicle
             else if (SaveManager.SpoilerStyle == 1) spoiler.transform.localScale = new Vector3(1.4f, 0.08f, 0.4f);
             else if (SaveManager.SpoilerStyle == 2) spoiler.transform.localScale = new Vector3(1.8f, 0.08f, 0.5f);
             else spoiler.transform.localScale = new Vector3(2.1f, 0.1f, 0.7f);
-            spoiler.GetComponent<Renderer>().material = darkMat;
+            if (hasShader) spoiler.GetComponent<Renderer>().material = darkMat;
             // headlights
             foreach (float x in new float[]{-0.6f, 0.6f})
             {
                 GameObject h = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 h.name = "Headlight"; h.transform.SetParent(car.transform, false);
                 h.transform.localPosition = new Vector3(x, 0.6f, 2.21f); h.transform.localScale = new Vector3(0.45f, 0.12f, 0.05f);
-                Material lm = new Material(bodyMat.shader); lm.color = Color.white; lm.EnableKeyword("_EMISSION"); lm.SetColor("_EmissionColor", Color.white * 1.5f);
-                h.GetComponent<Renderer>().material = lm;
+                if (hasShader)
+                {
+                    Material lm = new Material(bodyMat.shader); lm.color = Color.white; lm.EnableKeyword("_EMISSION"); lm.SetColor("_EmissionColor", Color.white * 1.5f);
+                    h.GetComponent<Renderer>().material = lm;
+                }
                 GameObject hl = new GameObject("HeadlightLight");
                 hl.transform.SetParent(car.transform, false);
                 hl.transform.localPosition = new Vector3(x, 0.6f, 2.2f);
@@ -84,9 +93,13 @@ namespace RealDrive.Vehicle
                 wv.transform.localPosition = positions[i];
                 wv.transform.localRotation = Quaternion.Euler(0, 0, 90);
                 wv.transform.localScale = new Vector3(0.7f, 0.25f, 0.7f);
-                Material wm = new Material(tyreMat); wm.color = Customization.RimColor(SaveManager.RimStyle);
-                // Tyre black hi rakho, rim colour ko wheel ke centre me dikhane ke liye material ko halka mix karo
-                wv.GetComponent<Renderer>().material = wm;
+                Material wm = null;
+                if (hasShader)
+                {
+                    wm = new Material(tyreMat); wm.color = Customization.RimColor(SaveManager.RimStyle);
+                    // Tyre black hi rakho, rim colour ko wheel ke centre me dikhane ke liye material ko halka mix karo
+                    wv.GetComponent<Renderer>().material = wm;
+                }
                 visuals[i] = wv.transform;
             }
             ctrl.frontLeft = cols[0]; ctrl.frontRight = cols[1]; ctrl.rearLeft = cols[2]; ctrl.rearRight = cols[3];

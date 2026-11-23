@@ -24,7 +24,7 @@ namespace RealDrive.World
             var rend = go.GetComponent<ParticleSystemRenderer>();
             Shader rs = Shader.Find("Standard");
             if (rs == null) rs = Shader.Find("Universal Render Pipeline/Lit"); if (rs == null) rs = Shader.Find("Unlit/Color");
-            rend.material = new Material(rs);
+            if (rs != null) rend.material = new Material(rs);
             rain.Stop();
         }
         void Update()
