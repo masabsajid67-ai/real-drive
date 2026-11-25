@@ -11,8 +11,8 @@ namespace RealDrive.Editor
         public static void BuildAndroid()
         {
             PlayerSettings.applicationIdentifier = "com.jolet.realdrive";
-            PlayerSettings.bundleVersion = "1.0.14";
-            PlayerSettings.Android.bundleVersionCode = 14;
+            PlayerSettings.bundleVersion = "1.0.15";
+            PlayerSettings.Android.bundleVersionCode = 15;
             PlayerSettings.defaultInterfaceOrientation = UIOrientation.LandscapeLeft;
             PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android, ScriptingImplementation.IL2CPP);
             PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64;

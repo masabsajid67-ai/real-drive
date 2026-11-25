@@ -78,7 +78,7 @@ namespace RealDrive.UI
             RuntimeUIHelper.CreateButton(root, "CARS", new Vector2(620, -80), new Vector2(320, 60), btnCol, OnCars);
             RuntimeUIHelper.CreateButton(root, "SETTINGS", new Vector2(620, -160), new Vector2(320, 60), btnCol, OnSettings);
             RuntimeUIHelper.CreateButton(root, "EXIT", new Vector2(620, -240), new Vector2(320, 60), new Color(0.35f, 0.08f, 0.08f, 0.92f), OnExit);
-            Text ver = RuntimeUIHelper.CreateText(root, "v1.0.14  •  Build 14  •  jolet", 18, new Color(1, 1, 1, 0.6f));
+            Text ver = RuntimeUIHelper.CreateText(root, "v1.0.15  •  Build 15  •  jolet", 18, new Color(1, 1, 1, 0.6f));
             RuntimeUIHelper.SetRect(ver.rectTransform, new Vector2(0, 0), new Vector2(0, 0), new Vector2(140, 30), new Vector2(400, 30));
             BuildSettingsPanel(root);
             BuildCarsPanel(root);

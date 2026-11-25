@@ -5,7 +5,7 @@ PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 25
   productGUID: a1b2c3d4e5f64789a1b2c3d4e5f64789
-  AndroidBundleVersionCode: 14
+  AndroidBundleVersionCode: 15
   AndroidMinSdkVersion: 24
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -34,7 +34,7 @@ PlayerSettings:
   m_AndroidSplashScreenScale: 0
   m_AndroidSplashScreen: {fileID: 0}
   bundleIdentifier: com.jolet.realdrive
-  bundleVersion: 1.0.14
+  bundleVersion: 1.0.15
   preloadedAssets: []
   m_TemplateCustomTags: {}
   m_BuildTargetGroup: 0
