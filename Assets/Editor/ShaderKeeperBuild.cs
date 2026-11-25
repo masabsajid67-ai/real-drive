@@ -30,6 +30,8 @@ namespace RealDrive.Editor
             "Standard",
             "Unlit/Color",
             "Universal Render Pipeline/Lit",
+            "UI/Default",
+            "Sprites/Default",
         };
 
         public void OnPreprocessBuild(BuildReport report)
