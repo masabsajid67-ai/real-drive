@@ -24,6 +24,7 @@ namespace RealDrive.Utils
             s.referenceResolution = new Vector2(1920, 1080);
             s.matchWidthOrHeight = 0.5f;
             go.AddComponent<GraphicRaycaster>();
+            go.AddComponent<TouchButtonHandler>();
             return c;
         }
         public static Text CreateText(Transform parent, string txt, int size, Color col, TextAnchor anchor = TextAnchor.MiddleCenter)
