@@ -37,6 +37,8 @@ namespace RealDrive.World
                 sunLight.intensity = isDay ? 1.2f : (isSunset ? 0.7f : 0.15f);
                 sunLight.color = isSunset ? new Color(1f, 0.6f, 0.35f) : Color.white;
                 RenderSettings.ambientIntensity = isDay ? 1f : 0.35f;
+                // Aasmaan jaisa ambient: din mein halka neela-safed, shaam mein narangi, raat mein gehra neela
+                RenderSettings.ambientLight = isDay ? new Color(0.75f, 0.82f, 0.9f) : (isSunset ? new Color(0.55f, 0.4f, 0.3f) : new Color(0.12f, 0.14f, 0.25f));
             }
             Camera cam = Camera.main;
             if (cam != null)
